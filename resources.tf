@@ -32,6 +32,11 @@ module "velero-ui" {
   depends_on = [module.velero]
 }
 
+module "scheduler" {
+  source = "./modules/scheduler"
+  depends_on = [module.velero]
+}
+
 module "ingress" {
   source = "./modules/ingress"
   depends_on = [module.velero-ui]
